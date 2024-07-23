@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main Page</title>
+    <title>PHP Docs</title>
 
     <link rel="shortcut icon"
         href="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2033%2034'%20fill-rule='evenodd'%20stroke-linejoin='round'%20stroke-miterlimit='2'%20xmlns:v='https://vecta.io/nano'%3e%3cpath%20d='M3%2027.472c0%204.409%206.18%205.552%2013.5%205.552%207.281%200%2013.5-1.103%2013.5-5.513s-6.179-5.552-13.5-5.552c-7.281%200-13.5%201.103-13.5%205.513z'%20fill='%23435ebe'%20fill-rule='nonzero'/%3e%3ccircle%20cx='16.5'%20cy='8.8'%20r='8.8'%20fill='%2341bbdd'/%3e%3c/svg%3e"
@@ -68,16 +68,22 @@
                 <div class="sidebar-menu">
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
-                        <li class="sidebar-item" id="Main Page">
+                        <li class="sidebar-item">
                             <a href="#sintaks" class="sidebar-link">
                                 <i class="bi bi-tv-fill"></i>
                                 <span>Sintaks PHP</span>
                             </a>
                         </li>
-                        <li class="sidebar-item" id="Main Page">
+                        <li class="sidebar-item">
                             <a href="#struktur" class="sidebar-link">
                                 <i class="bi bi-cpu"></i>
                                 <span>Struktur kendali</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#struktur" class="sidebar-link">
+                                <i class="bi bi-alt"></i>
+                                <span>Function</span>
                             </a>
                         </li>
                     </ul>
@@ -427,17 +433,17 @@
                     <div>
                         <h2 class="mt-4">Pengkondisian</h2>
                         <div class="highlight">
-                            <?php 
-                                $nilai = 750;
-                                if ($nilai < 74) {
-                                    echo "KKM";
-                                }elseif ($nilai > 75 && $nilai <= 100) {
-                                    echo "LULUS";
-                                }elseif ($nilai > 100) {
-                                    echo "NILAI INVALID";
-                                }else{
-                                    echo "PAS";
-                                }
+                            <?php
+                            $nilai = 750;
+                            if ($nilai < 74) {
+                                echo "KKM";
+                            } elseif ($nilai > 75 && $nilai <= 100) {
+                                echo "LULUS";
+                            } elseif ($nilai > 100) {
+                                echo "NILAI INVALID";
+                            } else {
+                                echo "PAS";
+                            }
                             ?>
                         </div>
                         <div class="highlight mt-4">
@@ -456,6 +462,32 @@
 <span class="line"><span class="cl"><span class="nt">   }</span></span></span>
 <span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span></code></pre>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1 class="mb-0 mt-5" id="struktur"><i class="bi bi-alt mb-3"></i> Function</h1>
+            <div class="card mt-4">
+                <div class="card-body fs-5">
+                    <h2>date();</h2>
+                    <div class="highlight mt-3">
+                        <p class="m-0"><?php echo date("l"); ?></p>
+                        <p class="m-0"><?php echo date("m.d.y"); ?></p>
+                        <p class="m-0"><?php echo date("j, n, Y"); ?></p>
+                        <p class="m-0"><?php echo date("D M j G:i:s T Y"); ?></p>
+                        <p class="m-0"><?php echo date("F j, Y, g:i a"); ?></p>
+                    </div>
+                    <div class="highlight mt-2">
+                        <div class="bd-code-snippet">
+                            <div class="highlight">
+                                <pre tabindex="0" class="chroma"><code class="language-css" data-lang="php"><span class="line"><span class="cl"><span class="nt">&lt;?php</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo date("l");</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo date("m.d.y");</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo date("j, n, Y");</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo date("D M j G:i:s T Y");</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo date("F j, Y, g:i a");</span></span></span>
+<span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span></code></pre>
                             </div>
                         </div>
                     </div>
