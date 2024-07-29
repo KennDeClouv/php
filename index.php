@@ -81,10 +81,36 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#struktur" class="sidebar-link">
+                            <a href="#function" class="sidebar-link">
                                 <i class="bi bi-alt"></i>
                                 <span>Function</span>
                             </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#string" class="sidebar-link">
+                                <i class="bi bi-body-text"></i>
+                                <span>String</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#array" class="sidebar-link">
+                                <i class="bi bi-database"></i>
+                                <span>Array</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item has-sub" id="Form Validation">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-database-fill"></i>
+                                <span>Database</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="crud" class="submenu-link">Main</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="crud/create.php" class="submenu-link">Create</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -279,6 +305,7 @@
                     </div>
                 </div>
             </div>
+            <!-- STRUKTUR KENDALI -->
             <h1 class="mb-0 mt-5" id="struktur"><i class="bi bi-cpu mb-3"></i> Struktur Kendali</h1>
             <div class="card mt-4 fs-5">
                 <div class="card-body ">
@@ -467,33 +494,439 @@
                     </div>
                 </div>
             </div>
-            <h1 class="mb-0 mt-5" id="struktur"><i class="bi bi-alt mb-3"></i> Function</h1>
+            <!-- FUNCTION -->
+            <h1 class="mb-0 mt-5" id="function"><i class="bi bi-alt mb-3"></i> Function</h1>
             <div class="card mt-4">
                 <div class="card-body fs-5">
-                    <h2>date();</h2>
-                    <div class="highlight mt-3">
-                        <p class="m-0"><?php echo date("l"); ?></p>
-                        <p class="m-0"><?php echo date("m.d.y"); ?></p>
-                        <p class="m-0"><?php echo date("j, n, Y"); ?></p>
-                        <p class="m-0"><?php echo date("D M j G:i:s T Y"); ?></p>
-                        <p class="m-0"><?php echo date("F j, Y, g:i a"); ?></p>
+                    <!-- date -->
+                    <div>
+                        <h2>date();</h2>
+                        <div class="highlight mt-3">
+                            <p class="m-0"><?php echo date("l"); ?></p>
+                            <p class="m-0"><?php echo date("l", time() + 60 * 60 * 24 * 10); ?></p>
+                            <p class="m-0"><?php echo date("m.d.y"); ?></p>
+                            <p class="m-0"><?php echo date("M D Y"); ?></p>
+                            <p class="m-0"><?php echo time(); ?></p>
+                            <p class="m-0"><?php echo date("j, n, Y"); ?></p>
+                            <p class="m-0"><?php echo date("D M j G:i:s T Y"); ?></p>
+                            <p class="m-0"><?php echo date("F j, Y, g:i a"); ?></p>
+                        </div>
+                        <div class="highlight mt-2">
+                            <div class="bd-code-snippet">
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma"><code class="language-css" data-lang="php"><span class="line"><span class="cl"><span class="nt">&lt;?php</span></span></span>
+      <span class="line"><span class="cl"><span class="nt">echo date("l");</span></span></span> 
+      <span class="line"><span class="cl"><span class="nt">echo date("l", time()+60*60*24*10);</span></span></span> 
+      <span class="line"><span class="cl"><span class="nt">echo date("m.d.y");</span></span></span> 
+      <span class="line"><span class="cl"><span class="nt">echo date("M.D.Y");</span></span></span> 
+      <span class="line"><span class="cl"><span class="nt">echo time();</span></span></span> 
+      <span class="line"><span class="cl"><span class="nt">echo date("j, n, Y");</span></span></span>   
+      <span class="line"><span class="cl"><span class="nt">echo date("D M j G:i:s T Y");</span></span></span>   
+      <span class="line"><span class="cl"><span class="nt">echo date("F j, Y, g:i a");</span></span></span> 
+    <span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span></code></pre>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="highlight mt-2">
-                        <div class="bd-code-snippet">
-                            <div class="highlight">
-                                <pre tabindex="0" class="chroma"><code class="language-css" data-lang="php"><span class="line"><span class="cl"><span class="nt">&lt;?php</span></span></span>
-  <span class="line"><span class="cl"><span class="nt">echo date("l");</span></span></span>
-  <span class="line"><span class="cl"><span class="nt">echo date("m.d.y");</span></span></span>
-  <span class="line"><span class="cl"><span class="nt">echo date("j, n, Y");</span></span></span>
-  <span class="line"><span class="cl"><span class="nt">echo date("D M j G:i:s T Y");</span></span></span>
-  <span class="line"><span class="cl"><span class="nt">echo date("F j, Y, g:i a");</span></span></span>
+                    <!-- date -->
+                    <div>
+                        <h2 class="mt-4">mktime();</h2>
+                        <div class="highlight mt-3">
+                            <p class="m-0"><?php echo mktime(0, 0, 0, 5, 27, 2006); ?></p>
+                            <p class="m-0"><?php echo date("l", mktime(0, 0, 0, 5, 27, 2006)); ?></p>
+                            <p class="m-0"><?php echo date("D d M Y ", mktime(0, 0, 0, 5, 27, 2006)); ?></p>
+                        </div>
+                        <div class="highlight mt-2">
+                            <div class="bd-code-snippet">
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma"><code class="language-css" data-lang="php"><span class="line"><span class="cl"><span class="nt">&lt;?php</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo mktime(0,0,0,5,27,2006);</span></span></span> 
+  <span class="line"><span class="cl"><span class="nt">echo date("l",mktime(0,0,0,5,27,2006)):</span></span></span> 
+  <span class="line"><span class="cl"><span class="nt">echo date("D d M Y ",mktime(0,0,0,5,27,2006));</span></span></span> 
 <span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- date -->
+                    <div>
+                        <h2 class="mt-4">strtotime();</h2>
+                        <div class="highlight mt-3">
+                            <p class="m-0"><?php echo strtotime("27 may 2006"); ?></p>
+                            <p class="m-0"><?php echo date("l", strtotime("27 may 2006")); ?></p>
+                        </div>
+                        <div class="highlight mt-2">
+                            <div class="bd-code-snippet">
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma"><code class="language-css" data-lang="php"><span class="line"><span class="cl"><span class="nt">&lt;?php</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo strtotime("27 may 2006");</span></span></span> 
+  <span class="line"><span class="cl"><span class="nt">echo date("l",strtotime("27 may 2006"));</span></span></span> 
+<span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span></code></pre>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <footer></footer>
+            <!-- STRING -->
+            <h1 class="mb-0 mt-5" id="string"><i class="bi bi-body-text mb-3"></i> String</h1>
+            <div class="card mt-4">
+                <div class="card-body fs-5">
+                    <!-- date -->
+                    <div>
+                        <h2>str();</h2>
+                        <div class="highlight mt-3">
+                            <p class="m-0"><?php echo strlen("hello world!") ?></p>
+                            <p class="m-0"><?php echo strpos("Hello, World!", "World"); ?></p>
+                            <p class="m-0"><?php echo substr("Hello, World!", 7, 5); ?></p>
+                            <p class="m-0"><?php echo str_replace("World", "PHP", "Hello, World!"); ?></p>
+                            <p class="m-0"><?php echo strtolower("HELLO, WORLD!"); ?></p>
+                            <p class="m-0"><?php echo strtoupper("hello, world!"); ?></p>
+                            <p class="m-0"><?php echo trim("  Hello, World!  "); ?></p>
+                        </div>
+                        <div class="highlight mt-2">
+                            <div class="bd-code-snippet">
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma"><code class="language-css" data-lang="php"><span class="line"><span class="cl"><span class="nt">&lt;?php</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo strlen("Hello, World!"); </span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo strpos("Hello, World!", "World");</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo substr("Hello, World!", 7, 5); </span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo str_replace("World", "PHP", "Hello, World!"); </span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo strtolower("HELLO, WORLD!");</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo strtoupper("hello, world!"); </span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo trim("  Hello, World!  ");</span></span></span>
+<span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- date -->
+                    <div>
+                        <h2 class="mt-4">array();</h2>
+                        <div class="highlight mt-3">
+                            <p class="m-0"><?php $array = [1, 2];
+                            array_push($array, 3, 4);
+                            print_r($array); ?></p>
+                            <p class="m-0"><?php $array = [1, 2, 3, 4];
+                            array_pop($array);
+                            print_r($array); ?></p>
+                            <p class="m-0"><?php $array1 = [1, 2];
+                            $array2 = [3, 4];
+                            $result = array_merge($array1, $array2);
+                            print_r($result); ?></p>
+                            <p class="m-0"><?php $array1 = [1, 2, 3, 4];
+                            $array2 = [3, 4, 5, 6];
+                            $result = array_diff($array1, $array2);
+                            print_r($result); ?></p>
+                            <p class="m-0"><?php $array = ["a" => 1, "b" => 2, "c" => 3];
+                            print_r(array_keys($array)); ?></p>
+                            <p class="m-0"><?php $array = ["a" => 1, "b" => 2, "c" => 3];
+                            print_r(array_values($array)); ?></p>
+
+                        </div>
+                        <div class="highlight mt-2">
+                            <div class="bd-code-snippet">
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma"><code class="language-css" data-lang="php"><span class="line"><span class="cl"><span class="nt">&lt;?php</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">$array = [1, 2];
+  array_push($array, 3, 4);
+  print_r($array);</span></span></span>
+
+  <span class="line"><span class="cl"><span class="nt">$array = [1, 2, 3, 4];
+  array_pop($array);
+  print_r($array);</span></span></span>
+
+  <span class="line"><span class="cl"><span class="nt">$array1 = [1, 2];
+  $array2 = [3, 4];
+  $result = array_merge($array1, $array2);
+  print_r($result);</span></span></span>
+
+  <span class="line"><span class="cl"><span class="nt">$array1 = [1, 2, 3, 4];
+  $array2 = [3, 4, 5, 6];
+  $result = array_diff($array1, $array2);
+  print_r($result);</span></span></span>
+
+  <span class="line"><span class="cl"><span class="nt">$array = ["a" => 1, "b" => 2, "c" => 3];
+  print_r(array_keys($array));</span></span></span>
+
+  <span class="line"><span class="cl"><span class="nt">$array = ["a" => 1, "b" => 2, "c" => 3];
+  print_r(array_values($array));</span></span></span>
+<span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- file system function -->
+                    <div>
+                        <h2 class="mt-4">file system function</h2>
+                        <div class="highlight mt-3">
+                            <p class="m-0"><?php
+                            $file = fopen("test.txt", "w");
+                            fwrite($file, "Hello, World!");
+                            fclose($file);
+
+                            // file_get_contents, file_put_contents
+                            file_put_contents("test.txt", "Hello, PHP!");
+                            echo file_get_contents("test.txt");
+
+                            // unlink
+                            unlink("test.txt");
+                            ?></p>
+                        </div>
+                        <div class="highlight mt-2">
+                            <div class="bd-code-snippet">
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma"><code class="language-css" data-lang="php"><span class="line"><span class="cl"><span class="nt">&lt;?php</span></span></span>
+<span class="line"><span class="cl"><span class="nt">$file = fopen("test.txt", "w");
+fwrite($file, "Hello, World!");
+fclose($file);
+
+// file_get_contents, file_put_contents
+file_put_contents("test.txt", "Hello, PHP!");
+echo file_get_contents("test.txt");
+
+// unlink
+unlink("test.txt");</span></span></span>
+<span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span>
+</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- file system function -->
+                    <div>
+                        <h2 class="mt-4">math</h2>
+                        <div class="highlight mt-3">
+                            <p class="m-0"><?php echo abs(-5); ?></p>
+                            <p class="m-0"><?php echo ceil(4.2); ?></p>
+                            <p class="m-0"><?php echo floor(4.7); ?></p>
+                            <p class="m-0"><?php echo max(1, 3, 5, 2, 4); ?></p>
+                            <p class="m-0"><?php echo min(1, 3, 5, 2, 4); ?></p>
+                            <p class="m-0"><?php echo rand(1, 10); ?></p>
+                            <p class="m-0"><?php echo round(4.5); ?></p>
+                        </div>
+                        <div class="highlight mt-2">
+                            <div class="bd-code-snippet">
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma"><code class="language-css" data-lang="php"><span class="line"><span class="cl"><span class="nt">&lt;?php</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo abs(-5); // Output: 5</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo ceil(4.2); // Output: 5</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo floor(4.7); // Output: 4</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo max(1, 3, 5, 2, 4); // Output: 5</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo min(1, 3, 5, 2, 4); // Output: 1</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo rand(1, 10); // Output: Random number between 1 and 10</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">echo round(4.5); // Output: 5</span></span></span>
+<span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span>
+</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- file system function -->
+                    <div>
+                        <h2 class="mt-4">math</h2>
+                        <div class="highlight mt-3">
+                            <p class="m-0"><?php // json_encode
+                            $data = ["name" => "John", "age" => 30];
+                            $json = json_encode($data);
+                            echo $json; // Output: {"name":"John","age":30} ?></p>
+                            <p class="m-0"><?php // json_decode
+                            $json = '{"name":"John","age":30}';
+                            $data = json_decode($json, true);
+                            print_r($data); // Output: Array ( [name] => John [age] => 30 ) ?></p>
+                        </div>
+                        <div class="highlight mt-2">
+                            <div class="bd-code-snippet">
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma"><code class="language-css" data-lang="php"><span class="line"><span class="cl"><span class="nt">&lt;?php</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">// json_encode
+  $data = ["name" => "John", "age" => 30];
+  $json = json_encode($data);
+  echo $json; // Output: {"name":"John","age":30}</span></span></span>
+  
+  <span class="line"><span class="cl"><span class="nt">// json_decode
+  $json = '{"name":"John","age":30}';
+  $data = json_decode($json, true);
+  print_r($data); // Output: Array ( [name] => John [age] => 30 )</span></span></span>
+<span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span>
+</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- file system function -->
+                    <div>
+                        <h2 class="mt-4">function</h2>
+                        <div class="highlight mt-3">
+                            <?php
+                            function salam($nama = 'woila')
+                            {
+                                return "selamat pagi $nama";
+                            }
+                            ; ?>
+                            <p class="m-0"><?= salam("KennDeClouv") ?></p>
+                        </div>
+                        <div class="highlight mt-2">
+                            <div class="bd-code-snippet">
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma"><code class="language-css" data-lang="php"><span class="line"><span class="cl"><span class="nt">&lt;?php</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">function salam($nama = 'woila'){
+    return "selamat pagi $nama";
+  };</span></span></span>
+<span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span>
+</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- STRING -->
+            <h1 class="mb-0 mt-5" id="array"><i class="bi bi-database mb-3"></i> array</h1>
+            <div class="card mt-4">
+                <div class="card-body fs-5">
+                    <!-- array -->
+                    <div>
+                        <h2>array() & []</h2>
+                        <div class="highlight mt-3">
+                            <?php
+                            $hari = array("senin", "selasa", "rabu", "kamis");
+                            $bulan = ["jan", "feb", "mar", "apr"];
+
+                            $hari[] = "jum'at";
+                            $hari[] = "sabtu";
+                            $hari[] = "minggu";
+                            ?>
+                            <p class="m-0"><?php echo print_r($hari) ?></p>
+                            <p class="m-0"><?php echo var_dump($bulan) ?></p>
+                            <p class="m-0"><?php echo $hari[0] ?></p>
+                            <p class="m-0"><?php echo $bulan[3] ?></p>
+                        </div>
+                        <div class="highlight mt-2">
+                            <div class="bd-code-snippet">
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma"><code class="language-css" data-lang="php"><span class="line"><span class="cl"><span class="nt">&lt;?php</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">//cara lama
+  $hari = array("senin","selasa","rabu","kamis");
+  print_r($hari)
+
+  //cara baru
+  $bulan = ["jan","feb","mar","apr"];
+  var_dumb($bulan)
+
+  echo $hari[0]
+  echo $bulan[3]
+
+  $hari[]="jum'at";
+  $hari[]="sabtu";
+  $hari[]="minggu";</span></span></span>
+<span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- array -->
+                    <div>
+                        <h2 class="mt-4">contoh</h2>
+                        <?php
+                        $angka = ["1", "4", "8", "11", "14", "17", "20"]
+                            ?>
+                        <div class="highlight">
+                            <div class="d-flex gap-3">
+                                <?php for ($i = 0; $i < count($angka); $i++): ?>
+                                    <div class="bg-primary p-3 rounded">
+                                        <?= $angka[$i] ?>
+                                    </div>
+                                <?php endfor; ?>
+                            </div>
+                            <div class="mt-3 d-flex gap-3">
+                                <?php foreach ($angka as $a): ?>
+                                    <div class="bg-primary p-3 rounded">
+                                        <?= $a ?>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                        <div class="highlight mt-2">
+                            <div class="bd-code-snippet">
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma"><code class="language-css" data-lang="php"><span class="line"><span class="cl"><span class="nt">&lt;?php</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">&lt;div class="d-flex gap-3"&gt;
+      &lt;?php for ($i = 0; $i < count($angka); $i++): ?&gt;
+          &lt;div class="bg-primary p-3 rounded"&gt;
+              &lt;?= $angka[$i] ?&gt;
+          &lt;/div&gt;
+      &lt;?php endfor; ?&gt;
+  &lt;/div&gt;
+  &lt;div class="mt-3 d-flex gap-3"&gt;
+      &lt;?php foreach ($angka as $a): ?&gt;
+          &lt;div class="bg-primary p-3 rounded"&gt;
+              &lt;?= $a ?&gt;
+          &lt;/div&gt;
+      &lt;?php endforeach; ?&gt;
+  &lt;/div&gt;</span></span></span>
+<span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- array -->
+                    <div class="mt-4">
+                        <?php
+                        $dataa = [
+                            ["KennDeClouv", "18", "27 may 2006", "Malang"],
+                            ["RihaaDeClouv", "17", "15 july 2007", "Madiun"],
+                        ]
+                            ?>
+                        <div class="highlight">
+                            <table class="table table-responsive">
+                                <thead>
+                                    <th>Nama</th>
+                                    <th>Umur</th>
+                                    <th>Tanggal</th>
+                                    <th>Alamat</th>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($dataa as $dt): ?>
+                                        <tr>
+                                            <td><?= $dt[0] ?></td>
+                                            <td><?= $dt[1] ?></td>
+                                            <td><?= $dt[2] ?></td>
+                                            <td><?= $dt[3] ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="highlight mt-2">
+                            <div class="bd-code-snippet">
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma"><code class="language-css" data-lang="php"><span class="line"><span class="cl"><span class="nt">&lt;?php</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">&lt;table class="table table-responsive"&gt;
+      &lt;thead&gt;
+          &lt;th&gt;Nama&lt;/th&gt;
+          &lt;th&gt;Umur&lt;/th&gt;
+          &lt;th&gt;Tanggal&lt;/th&gt;
+          &lt;th&gt;Alamat&lt;/th&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+          &lt;?php foreach ($dataa as $dt): ?&gt;
+              &lt;tr&gt;
+                  &lt;td&gt;<?= $dt[0] ?>&lt;/td&gt;
+                  &lt;td&gt;<?= $dt[1] ?>&lt;/td&gt;
+                  &lt;td&gt;<?= $dt[2] ?>&lt;/td&gt;
+                  &lt;td&gt;<?= $dt[3] ?>&lt;/td&gt;
+              &lt;/tr&gt;
+          &lt;?php endforeach; ?&gt;
+      &lt;/tbody&gt;
+  &lt;/table&gt;</span></span></span>
+<span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="assets/static/js/components/dark.js"></script>
