@@ -36,7 +36,7 @@
             require '../functions.php';
             $id = $_GET["id"];
 
-            $data = query("SELECT * FROM accounts WHERE id = $id")[0];
+            $data = query("SELECT * FROM dataa WHERE id = $id")[0];
 
             if (isset($_POST["submit"])) {
                 $name = $_POST["nama"];
@@ -44,7 +44,7 @@
                 $tanggal = $_POST["tanggal_lahir"];
                 $alamat = $_POST["alamat"];
 
-                $query = "UPDATE accounts SET
+                $query = "UPDATE dataa SET
                         nama = '$name',
                         umur = '$umur',
                         tanggal_lahir = '$tanggal',
@@ -166,7 +166,7 @@
   $id = $_GET["id"];
 
   //collect information
-  $data = query("SELECT * FROM accounts WHERE id = $id")[0];
+  $data = query("SELECT * FROM dataa WHERE id = $id")[0];
 
   //check if submit button clicked
   if (isset($_POST["submit"])) {
@@ -174,7 +174,7 @@
       $umur = $_POST["umur"];
       $tanggal = $_POST["tanggal_lahir"];
       $alamat = $_POST["alamat"];
-      $query = "UPDATE accounts SET
+      $query = "UPDATE dataa SET
               nama = '$name',
               umur = '$umur',
               tanggal_lahir = '$tanggal',

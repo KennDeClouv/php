@@ -145,14 +145,14 @@
                             <a href="create.php" class="btn btn-success">+ Add data</a>
                         </div>
                         <?php
-                        $accout = query("SELECT * FROM accounts");
+                        $accout = query("SELECT * FROM dataa");
 
                         if (isset($_POST['reset'])) {
-                            $accout = query("SELECT * FROM accounts");
+                            $accout = query("SELECT * FROM dataa");
                         }
                         if (isset($_POST['cari'])) {
                             $keyword = $_POST['keyword'];
-                            $sql = "SELECT * FROM accounts WHERE 
+                            $sql = "SELECT * FROM dataa WHERE 
                             nama LIKE '%$keyword%'OR
                             umur LIKE '%$keyword%'OR
                             tanggal_lahir LIKE '%$keyword%'OR
@@ -206,12 +206,12 @@
   };
 
   //call function
-  $accout = query("SELECT * FROM accounts");
+  $accout = query("SELECT * FROM dataa");
 
   //search
   if (isset($_POST['cari'])) {
       $keyword = $_POST['keyword'];
-      $sql = "SELECT * FROM accounts WHERE 
+      $sql = "SELECT * FROM dataa WHERE 
       nama LIKE '%$keyword%'OR
       umur LIKE '%$keyword%'OR
       tanggal_lahir LIKE '%$keyword%'OR
@@ -221,7 +221,7 @@
 
   //reset button
   if (isset($_POST['reset'])) {
-      $accout = query("SELECT * FROM accounts");
+      $accout = query("SELECT * FROM dataa");
   }</span></span></span>
 <span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span></code></pre>
                                 </div>

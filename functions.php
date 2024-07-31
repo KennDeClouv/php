@@ -9,5 +9,4 @@ function query($quary)
         $rows[] = $row;
     }
     return $rows;
-};
-?>
+}

@@ -1,14 +1,53 @@
 <?php
-if (isset($_POST["submit"])) {
-    if ($_POST["username"] == "admin" && $_POST["password"] == "admin") {
-        header("Location: admin.php");
-        exit;
-    } else {
-        $error = true;
-    };
-};
-?>
+include '../conn.php';
 
+if (isset($_POST['submit'])) {
+    $username = strtolower(stripslashes($_POST["username"]));
+    $name = $_POST["name"];
+    $password = mysqli_real_escape_string($conn, $_POST["password"]);
+    $password1 = mysqli_real_escape_string($conn, $_POST["password-confirm"]);
+    // $sig = password_hash($name, PASSWORD_DEFAULT);
+
+    $result = mysqli_query($conn,"SELECT username FROM accounts WHERE username = '$username'");
+    $acc = true;
+    if (mysqli_fetch_assoc($result)) {
+        echo "<script>
+            alert('user uda terdaftar!')
+        </script>";
+        $acc = false;
+    }
+
+    if ($password !== $password1) {
+        echo "<script>
+            alert('password confirm salah!')
+        </script>";
+    };
+
+    // password hash
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    $query = "INSERT INTO accounts VALUES(
+    '','$username','$name','$password')";
+
+    if ($acc == true) {
+        mysqli_query($conn, $query);
+        if (mysqli_affected_rows($conn) > 0) {
+            sleep(1);
+            echo "<script>
+            alert('user berhasil didaftarkan!');
+            window.location.href = '../';
+            </script>";
+        }else{
+            echo "<script>
+                alert('user gagal didaftarkan!')
+            </script>";
+        }
+    }
+
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,15 +76,21 @@ if (isset($_POST["submit"])) {
                     <div class="auth-logo">
                         <a href="../">AVE</a>
                     </div>
-                    <h1 class="auth-title">Log in.</h1>
-                    <p class="auth-subtitle mb-2">Log in with your data that you entered during registration.</p>
-                    <?php if (isset($error)):?>
+                    <h1 class="auth-title">Sign in.</h1>
+                    <p class="auth-subtitle mb-2">make your account to login.</p>
+                    <?php if (isset($error)): ?>
                         <p class="text-danger fs-5">Username or password incorrect</p>
                     <?php endif; ?>
                     <form method="POST" class="mt-2">
                         <div class="form-group position-relative has-icon-left mb-4">
                             <input type="text" class="form-control form-control-xl" placeholder="Username"
                                 name="username">
+                            <div class="form-control-icon">
+                                <i class="bi bi-at"></i>
+                            </div>
+                        </div>
+                        <div class="form-group position-relative has-icon-left mb-4">
+                            <input type="text" class="form-control form-control-xl" placeholder="Your name" name="name">
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
@@ -57,13 +102,14 @@ if (isset($_POST["submit"])) {
                                 <i class="bi bi-shield-lock"></i>
                             </div>
                         </div>
-                        <div class="form-check form-check-lg d-flex align-items-end">
-                            <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label text-gray-600" for="flexCheckDefault">
-                                Keep me logged in
-                            </label>
+                        <div class="form-group position-relative has-icon-left mb-4">
+                            <input type="password" class="form-control form-control-xl" placeholder="Confirm password"
+                                name="password-confirm">
+                            <div class="form-control-icon">
+                                <i class="bi bi-shield-lock"></i>
+                            </div>
                         </div>
-                        <input type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-5" name="submit">
+                        <input type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-3" name="submit">
                     </form>
                 </div>
             </div>

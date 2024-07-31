@@ -42,7 +42,7 @@
                 $alamat = $_POST["alamat"];
                 // $id = rand(100000000, 999999999);
 
-                $query = "INSERT INTO accounts VALUES (
+                $query = "INSERT INTO dataa VALUES (
                     '','$name','$umur','$tanggal','$alamat'
                     )";
 
@@ -155,7 +155,7 @@
   $umur = $_POST["umur"];
   $tanggal = $_POST["tanggal_lahir"];
   $alamat = $_POST["alamat"];
-  $query = "INSERT INTO accounts VALUES (
+  $query = "INSERT INTO dataa VALUES (
       '','$name','$umur','$tanggal','$alamat')";
 
   //execute function
