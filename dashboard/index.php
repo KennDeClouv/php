@@ -11,7 +11,7 @@ if ($_COOKIE["sig"] !== hash("sha256", $row["name"])) {
     $_SESSION["cookie_valid"] = false;
     header("Location: ../");
     exit();
-}else{
+} else {
     $_SESSION["cookie_valid"] = true;
 }
 
@@ -351,9 +351,111 @@ if ($_COOKIE["sig"] !== hash("sha256", $row["name"])) {
             <h1 class="mb-0 mt-5" id="struktur"><i class="bi bi-cpu mb-3"></i> Struktur Kendali</h1>
             <div class="card mt-4 fs-5">
                 <div class="card-body ">
+                    <!-- if -->
+                    <div>
+                        <h2 class="">if</h2>
+                        <div class="highlight">
+                            <?php
+                            $angka = 9;
+                            if ($angka < 10) {
+                                echo "$angka kurang dari 10";
+                            } else {
+                                echo "$angka lebih dari 10";
+                            }
+                            ?>
+                        </div>
+                        <div class="highlight mt-4">
+                            <div class="bd-code-snippet">
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma"><code class="language-css" data-lang="php"><span class="line"><span class="cl"><span class="nt">&lt;?php</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">$angka = 9;
+  if($angka < 10){
+      echo "$angka kurang dari 10";
+  }else{
+      echo "$angka lebih dari 10";
+  }</span></span></span>
+<span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- elseif -->
+                    <div>
+                        <h2 class="mt-4">elseif</h2>
+                        <div class="highlight">
+                            <?php
+                            $angka = 10;
+                            if ($angka < 10) {
+                                echo "$angka kurang dari 10";
+                            } elseif ($angka == 10) {
+                                echo "angka anda $angka";
+                            } else {
+                                echo "$angka lebih dari 10";
+                            }
+                            ?>
+                        </div>
+                        <div class="highlight mt-4">
+                            <div class="bd-code-snippet">
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma"><code class="language-css" data-lang="php"><span class="line"><span class="cl"><span class="nt">&lt;?php</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">$angka = 10;
+  if ($angka < 10) {
+      echo "$angka kurang dari 10";
+  }elseif( $angka == 10) {
+      echo "angka anda $angka";
+  }else{
+      echo "$angka lebih dari 10";
+ }</span></span></span>
+<span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- switch -->
+                    <div>
+                        <h2 class="mt-4">switch</h2>
+                        <div class="highlight">
+                            <?php
+                            $warna = "merah";
+
+                            switch ($warna) {
+                                case "merah":
+                                    echo "Warna favorit Anda adalah merah!";
+                                    break;
+                                case "biru":
+                                    echo "Warna favorit Anda adalah biru!";
+                                    break;
+                                case "hijau":
+                                    echo "Warna favorit Anda adalah hijau!";
+                                    break;
+                                default:
+                                    echo "Warna favorit Anda tidak diketahui!";
+                            }
+                            ?>
+                        </div>
+                        <div class="highlight mt-4">
+                            <div class="bd-code-snippet">
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma"><code class="language-css" data-lang="php"><span class="line"><span class="cl"><span class="nt">&lt;?php</span></span></span>
+<span class="line"><span class="cl"><span class="nt">$warna = "merah";
+switch ($warna) {
+  case "merah":
+      echo "warna favorit anda adalah merah";
+      break;
+  case "biru":
+      echo "warna favorit anda adalah biru";
+      break;
+  default:
+      echo "warna favorit anda tidak diketahui";
+}</span></span></span>
+<span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- for -->
                     <div>
-                        <h2 class="">For</h2>
+                        <h2 class="mt-4">For</h2>
                         <div class="highlight">
                             <?php
                             for ($i = 0; $i < 3; $i++) {
@@ -420,6 +522,30 @@ if ($_COOKIE["sig"] !== hash("sha256", $row["name"])) {
   <span class="line"><span class="cl"><span class="nt">    echo "&lt;p class='m-0'&gt;Hello world!&lt;/p&gt;;</span></span></span>
   <span class="line"><span class="cl"><span class="nt">    $i++;</span></span></span>
   <span class="line"><span class="cl"><span class="nt">} while ($i < 3);</span></span></span>
+<span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- do -->
+                    <div>
+                        <h2 class="mt-4">foreach</h2>
+                        <div class="highlight">
+                            <?php
+                            $buah = ["apel", "pisang", "jeruk"];
+
+                            foreach ($buah as $nilai) {
+                                echo "$nilai<br>";
+                            }
+                            ?>
+                        </div>
+                        <div class="highlight mt-4">
+                            <div class="bd-code-snippet">
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma"><code class="language-css" data-lang="php"><span class="line"><span class="cl"><span class="nt">&lt;?php</span></span></span>
+  <span class="line"><span class="cl"><span class="nt">$buah = ["apel", "pisang", "jeruk"];
+  foreach ($buah as $nilai) {
+    echo "$nilai";}</span></span></span>
 <span class="line"><span class="cl"><span class="nt">?&gt;</span></span></span></code></pre>
                                 </div>
                             </div>
